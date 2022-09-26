@@ -1,0 +1,17 @@
+# guide
+# https://spring.io/guides/topicals/spring-boot-docker/
+
+# create an executable JAR with Maven
+mvn install
+
+# build image
+docker build -t spring-rest-calc-kotlin .
+
+# run container
+docker run -dp 8080:8080 spring-rest-calc-kotlin
+
+# how to find process id
+sudo lsof -n -i :8080 | grep LISTEN
+
+# how to kill
+sudo kill -9 pid

@@ -1,5 +1,6 @@
 package com.kt.restcalckotlin.controller
 
+import com.kt.restcalckotlin.model.Calculation
 import com.kt.restcalckotlin.service.CalcService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -36,6 +37,11 @@ class CalcController(
     @PostMapping("/divide")
     fun divide(@RequestBody nums: Array<Int>): Double {
         return calcService.divide(nums[0], nums[1])
+    }
+
+    @GetMapping("/calculations")
+    fun getCalculations(): List<Calculation>? {
+        return calcService.getCalculationsList()
     }
 
 }
